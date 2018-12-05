@@ -40,13 +40,13 @@
 
 	//uue kasutaja andmebaasi lisamine
 	//ühendus serveriga
-	function signUp($signupFirstName, $signupFamilyName, $signupBirthDate, $gender, $signupPic, $signupEmail, $signupPassword){
+	function signUp($signupFirstName, $signupFamilyName, $signupBirthDate, $signupPic, $signupAddress, $signupPhoneNumber, $signupEmail, $signupPassword){
 		//andmebaasiühendus
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		//käsk serverile
-		$stmt = $mysqli->prepare("INSERT INTO epusers(firstname, lastname, birthday, gender, pic, email, password) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt = $mysqli->prepare("INSERT INTO epusers(firstname, lastname, birthday, pic, address, phone_number,  email, password) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
 		echo $mysqli->error;
-		$stmt->bind_param("sssisssss", $signupFirstName, $signupFamilyName, $signupBirthDate, $gender, $signupPic, $signupAddress, $signupPhoneNumber, $signupEmail, $signupPassword);
+		$stmt->bind_param("sssissss", $signupFirstName, $signupFamilyName, $signupBirthDate, $signupPic, $signupAddress, $signupPhoneNumber, $signupEmail, $signupPassword);
 		if($stmt->execute()){
 			header("Location: index.php");
 			exit();
@@ -55,7 +55,7 @@
 		}	
 	}
 	
-	/*function addSale($productName, $productCategory, $productPrice, $productDesc, $target_file){
+	function addSale($productName, $productCategory, $productPrice, $productDesc, $target_file){
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		$stmt = $mysqli->prepare("INSERT INTO epproducts(epusers_id, product_name, Category, Price, productDesc, pictureName) VALUES (?, ?, ?, ?, ?, ?)");
 		echo $mysqli->error;
@@ -68,7 +68,7 @@
 		}	
 		$stmt->close();
 		$mysqli->close();
-	}*/
+	}
 	
 	//sisestuse kontrollimine
 	function test_input($data){
@@ -77,8 +77,6 @@
 		$data = htmlspecialchars($data); //eemaldab keelatud märgid
 		return $data;
 	}
-
-	/*
 	
 	function latestItems(){
 		$notice = "";
@@ -237,4 +235,4 @@ where epproducts.id = ?");
 		$stmt->close();
 		$mysqli->close();
 		return $notice;
-	}*/
+	}

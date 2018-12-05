@@ -1,5 +1,5 @@
 <?php
-/*	require("../../config.php");
+	require("../../config.php");
 	require("functions.php");
 	
 	$signupFirstName = "";
@@ -138,19 +138,13 @@
 		}
 	}
 	
-	if (isset($_POST["gender"]) && !empty($_POST["gender"])){ //kui on määratud ja pole tühi
-			$gender = intval($_POST["gender"]);
-		} else {
-			$signupGenderError = " (Palun vali sobiv!) Määramata!";
-	}
-	
 	# Uue kasutaja lisamine andmebaasi
-	if (empty($signupFirstNameError) and empty($signupBirthDayError) and empty ($signupGenderError) 
+	if (empty($signupFirstNameError) and empty($signupBirthDayError)
 	and empty ($signupEmailError) and empty ($signupPasswordError) and !empty($_POST["signupPassword"])){
 		#echo "Hakkan andmeid salvestama!";
 		$signupPassword = hash("sha512", $_POST["signupPassword"]);
 		
-		signup($signupFirstName, $signupFamilyName, $signupBirthDate, $gender, $signupPic, $signupAddress, $signupPhoneNumber, $signupEmail, $signupPassword);
+		signup($signupFirstName, $signupFamilyName, $signupBirthDate, $signupPic, $signupAddress, $signupPhoneNumber, $signupEmail, $signupPassword);
 		
 	}
 	
@@ -197,7 +191,7 @@
 		
 	}
 	$signupYearSelectHTML.= "</select> \n";
-*/?>
+?>
 
 
 
@@ -230,16 +224,7 @@
                         echo $signupDaySelectHTML ."\n" . $signupMonthSelectHTML ."\n" . $signupYearSelectHTML;
 
                     ?>
-                    <span> <?php echo $signupBirthDayError ?> <span>
-                    <br><br>
-                    <label>Sugu</label><span>
-                    <br>
-                    <input type="radio" name="gender" value="1" <?php if ($gender == '1') {echo 'checked';} ?>>
-                                <label>Mees</label> <!-- Kõik läbi POST'i on string!!! -->
-                    <input type="radio" name="gender" value="2" <?php if ($gender == '2') {echo 'checked';} ?>>
-                                <label>Naine</label>
-                                <input type="radio" name="gender" value="3" <?php if ($gender == '3') {echo 'checked';} ?>><label>Muu</label>
-                    <span> <?php echo $signupGenderError ?> <span>
+                    <span> <?php echo $signupBirthDayError ?></span>
                     <br><br>
                     <label>Isikukood</label>
                     <input name="signupPic" type="text" value="<?php echo $signupPic; ?>">
@@ -257,9 +242,14 @@
                     <input name="signupPassword" placeholder="Salasõna" type="password">
                     <span> <?php echo $signupPasswordError ?> <span>
                     <br><br>
+                    <a href="pricacy.php">Kasutajaleping ja privaatsuspoliitika</a>
+                    <br><br>
+                    <input type="checkbox" name="privacyPolicy" Value="privacyPolicy">Kinnitan,
+                    et olen põhjalikult tutvunud ja nõustun kasutajalepingu kui ka selle juurde kuuluva
+                    privaatsuspoliitikaga
+                    <br><br>
+                    <input type="checkbox" name="News" value="News">Soovin saada uudiskirju
 
-
-		
 		             <input name="signupButton" type="submit" value="Loo kasutaja">
 	            </form>
 		

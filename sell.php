@@ -67,25 +67,36 @@
 
 				<ul id="menu">
 					<li><a href="index.php"><pealkiri>AVALEHT</pealkiri></a></li>
-					<li><a href=""><pealkiri>KUULUTUSED</pealkiri></a>
+					<li><a href=""><pealkiri>OSTA</pealkiri></a>
 				<ul>
 				
-					<li><a href="electronics.php"><pealkiri>ELEKTROONIKA</pealkiri></a></li>
-					<li><a href="clothes.php"><pealkiri>RIIDEESEMED</pealkiri></a></li>
-					<li><a href="furniture.php"><pealkiri>MÖÖBEL</pealkiri></a></li>
-					<li><a href="others.php"><pealkiri>MUU</pealkiri></a></li>
+					<li><a href="item_list.php?Category=1&type=1"><pealkiri>Veesport</pealkiri></a></li>
+					<li><a href="item_list.php?Category=2&type=1"><pealkiri>Talisport</pealkiri></a></li>
+					<li><a href="item_list.php?Category=3&type=1"><pealkiri>Kalastus</pealkiri></a></li>
+					<li><a href="item_list.php?Category=4&type=1"><pealkiri>Ratsasport</pealkiri></a></li>
+					<li><a href="item_list.php?Category=5&type=1"><pealkiri>Jahindus</pealkiri></a></li>
+					<li><a href="item_list.php?Category=6&type=1"><pealkiri>Kõik kuulutused</pealkiri></a></li>
 				
 				</ul>
-					<li><a href="questions.php"><pealkiri>REEGLID</pealkiri></a></li>
-					<li><a href="contact.php"><pealkiri>KONTAKT</pealkiri></a></li>
+				<li><a href=""><pealkiri>RENDI</pealkiri></a>
+				<ul>
+				
+					<li><a href="item_list.php?Category=1&type=2"><pealkiri>Veesport</pealkiri></a></li>
+					<li><a href="item_list.php?Category=2&type=2"><pealkiri>Talisport</pealkiri></a></li>
+					<li><a href="item_list.php?Category=3&type=2"><pealkiri>Kalastus</pealkiri></a></li>
+					<li><a href="item_list.php?Category=4&type=2"><pealkiri>Ratsasport</pealkiri></a></li>
+					<li><a href="item_list.php?Category=5&type=2"><pealkiri>Jahindus</pealkiri></a></li>
+					<li><a href="item_list.php?Category=6&type=2"><pealkiri>Kõik kuulutused</pealkiri></a></li>
+				
+				</ul>
 				
 				<div style="clear:both"></div>
 
 				</div>
 
 			<div id="content">
-				<h2> Muu: </h2>
-				<span><table style="width:100%"> <tr><?php echo latestOthers(); ?></tr></table> <br></span>
+				<h2> Kõik müügikuulutused: </h2>
+				<span><table style="width:100%"> <tr><?php echo latestSell(); ?></tr></table> <br></span>
 		
 				</div>
 		

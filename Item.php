@@ -90,7 +90,13 @@
 			<div id="content">
 				
 			<span>
-			<?php echo getItem($_GET['id'], $_SESSION["userId"]); ?>			
+			<?php 
+			if (!empty($_SESSION['userId'])){
+				echo getItem($_GET['id'], $_SESSION["userId"]);
+				}
+			else {
+				echo getItem($_GET['id'],111);
+			}?>			
 			<?php if(isset($_GET["delete"])){
 			deleteItem($_GET["id"]);
 			header("Location: index.php");

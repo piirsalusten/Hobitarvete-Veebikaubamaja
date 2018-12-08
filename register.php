@@ -209,16 +209,19 @@
 
             <div id="content">
 				<h2>Loo kasutaja</h2>
+				<br>
 	            <p>Uus kasutaja</p>
+				<br>
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 		            <label>Eesnimi </label>
-		            <input name="signupFirstName" type="text" value="<?php echo $signupFirstName; ?>">
-		            <span> <?php echo $signupFirstNameError ?><span>
-                    <br>
+					
+		            <input name="signupFirstName" type="text" value="<?php echo $signupFirstName; ?>">  
+		            <span> <?php echo $signupFirstNameError ?></span>
+                 <br><br>
                     <label>Perekonnanimi </label>
                     <input name="signupFamilyName" type="text" value="<?php echo $signupFamilyName; ?>">
-                    <span> <?php echo $signupFamilyNameError ?><span>
-                    <br>
+                    <span> <?php echo $signupFamilyNameError ?></span>
+                   <br><br>
                     <label>Sisesta oma sünnikuupäev</label>
                     <?php
                         echo $signupDaySelectHTML ."\n" . $signupMonthSelectHTML ."\n" . $signupYearSelectHTML;
@@ -228,19 +231,19 @@
                     <br><br>
                     <label>Isikukood</label>
                     <input name="signupPic" type="text" value="<?php echo $signupPic; ?>">
-                    <span> <?php echo $signupPicError ?><span>
+                    <span> <?php echo $signupPicError ?></span>
                     <br><br>
                     <label>Telefoninumber</label>
                     <input name="signupPhoneNumber" type="text" value="<?php echo $signupPhoneNumber; ?>">
-                    <span><?php echo $signupPhoneNumberError ?><span>
+                    <span><?php echo $signupPhoneNumberError ?></span>
                     <br><br>
                     <label>Email</label>
                     <input name="signupEmail" type="email" value="<?php echo $signupEmail; ?>">
-                    <span> <?php echo $signupEmailError ?> <span>
+                    <span> <?php echo $signupEmailError ?> </span>
                     <br><br>
                     <label>Salasõna</label>
                     <input name="signupPassword" placeholder="Salasõna" type="password">
-                    <span> <?php echo $signupPasswordError ?> <span>
+                    <span> <?php echo $signupPasswordError ?> </span>
                     <br><br>
                     <a href="pricacy.php">Kasutajaleping ja privaatsuspoliitika</a>
                     <br><br>
@@ -277,7 +280,7 @@
 					<br>
 					<input name="loginPassword" placeholder="Salasõna" type="password">
 					<br><br>
-					<input name="signinButton" type="submit" value="Logi sisse"> <span> <?php echo $notice ?><span>
+					<input name="signinButton" type="submit" value="Logi sisse"> </span> <?php echo $notice ?><span>
 					</form>
 					<a href="register.php">Registreeri!</a>
 					<?php } ?>

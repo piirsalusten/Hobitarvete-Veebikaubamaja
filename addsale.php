@@ -1,4 +1,4 @@
-/*<?php
+<?php
 	require("../../config.php");
 	require("functions.php");
 	require("classes/Photoupload.class.php");
@@ -118,7 +118,7 @@
 	}
 	
 	}
-?>*/
+?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
@@ -161,12 +161,12 @@
 
 			<div id="content">
 				<h2>Lisa kuulutus</h2>
-				<br>
+				<br><br>
 				<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
 				<label>Toote nimi: </label>
 				<input name="productName" type="text" value="<?php echo $productName; ?>">
-				<span> <?php echo $productNameError ?><span>
-				<br>
+				<span> <?php echo $productNameError ?></span>
+				<br><br>
 				<label>Vali toote kategooria:</label>
 				
 				<select name="Categories">
@@ -175,20 +175,20 @@
 					<option value="3">Mööbel</option>
 					<option value="4">Muu</option>
 				</select>
-				<span> <?php echo $productCategoryError ?><span>
+				<span> <?php echo $productCategoryError ?></span>
 				<br><br>
 				<label>toote hind: </label>
 				<input name="productPrice" type="text" value="<?php echo $productPrice; ?>">
-				<span> <?php echo $productPriceError ?><span>
+				<span> <?php echo $productPriceError ?></span>
 				<br><br>
 				<label>Kuulutuse kirjeldus: </label>
-				<br>
+				<br><br>
 				<textarea name="productDesc" rows="5" cols="40"><?php echo $productDesc; ?></textarea>
-				<span> <?php echo $productDescError ?><span>
+				<span> <?php echo $productDescError ?></span>
 				<br><br>
 				<label>Valige pilt tootest:</label>
 				<input type="file" name="fileToUpload" id="fileToUpload">
-				<span> <?php echo $fileToUploadError ?><span>
+				<span> <?php echo $fileToUploadError ?></span>
 				<br><br>
 				<input type="submit" value="Lae üles" name="submit">
 				</div>
@@ -214,7 +214,7 @@
 					<br>
 					<input name="loginPassword" placeholder="Salasõna" type="password">
 					<br><br>
-					<input name="signinButton" type="submit" value="Logi sisse"> <span> <?php echo $notice ?><span>
+					<input name="signinButton" type="submit" value="Logi sisse"> <span> <?php echo $notice ?></span>
 					</form>
 					<a href="register.php">Registreeri!</a>
 					<?php } ?>

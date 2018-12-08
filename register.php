@@ -8,19 +8,16 @@
 	$signupPic = "";
 	$signupAddress = "";
 	$signupPhoneNumber = "";
-	$signupGender = "";
 	$signupBirthDay = null;
 	$signupBirthMonth = null;
 	$signupBirthYear = null;
 	$signupBirthDate = null;
-	$gender = "";
 	$notice= "";
 	
 	# Vigade muutujad
 	$signupFirstNameError = "";
 	$signupFamilyNameError = "";
 	$signupBirthDayError = "";
-	$signupGenderError = "";
 	$signupEmailError = "";
 	$signupPasswordError = "";
 	$signupPicError = "";

@@ -60,7 +60,7 @@
 
 			<div id="header">
 				<div id="logo">
-					<h2>Hobitarvete veebikaubamaja</h2>
+					
 				</div>
 
 				<div style="clear:both"></div>
@@ -75,7 +75,7 @@
 					<li><a href="item_list.php?Category=3&type=1"><pealkiri>Kalastus</pealkiri></a></li>
 					<li><a href="item_list.php?Category=4&type=1"><pealkiri>Ratsasport</pealkiri></a></li>
 					<li><a href="item_list.php?Category=5&type=1"><pealkiri>Jahindus</pealkiri></a></li>
-					<li><a href="item_list.php?Category=6&type=1"><pealkiri>Kõik müügikuulutused</pealkiri></a></li>
+					<li><a href="item_list.php?Category=6&type=1"><pealkiri>Kõik kuulutused</pealkiri></a></li>
 				
 				</ul>
 				<li><a href=""><pealkiri>RENDI</pealkiri></a>
@@ -86,7 +86,7 @@
 					<li><a href="item_list.php?Category=3&type=2"><pealkiri>Kalastus</pealkiri></a></li>
 					<li><a href="item_list.php?Category=4&type=2"><pealkiri>Ratsasport</pealkiri></a></li>
 					<li><a href="item_list.php?Category=5&type=2"><pealkiri>Jahindus</pealkiri></a></li>
-					<li><a href="item_list.php?Category=6&type=2"><pealkiri>Kõik rendikuulutused</pealkiri></a></li>
+					<li><a href="item_list.php?Category=6&type=2"><pealkiri>Kõik kuulutused</pealkiri></a></li>
 				
 				</ul>
 				
@@ -95,10 +95,8 @@
 				</div>
 
 			<div id="content">
-				
-				</div>
-				<h2> Viimati üleslaetud kuulutused: </h2>
-				<span><table style="width:100%"> <tr><?php echo latestItems(); ?></tr></table> <br></span>
+				<h2> Kõik müügikuulutused: </h2>
+				<span><table style="width:100%"> <tr><?php echo latestSell(); ?></tr></table> <br></span>
 		
 				</div>
 		
@@ -143,13 +141,9 @@
 
 	<div id="footer">
 		<div class="container">
-			<p>Copyright &copy; 2018 Hobitarvete veebikaubmaja <br>
+			<p>Copyright &copy; 2017 tlushop.ee <br>
 				All Rights Reserved
 			</p>
-			<div class="footer-links">
-				<a href="contact.php">Kontakt</a>
-				<a href="privacy.php">Privaatsuspoliitika</a>
-			</div>
 			
 		</div>
 	</div>

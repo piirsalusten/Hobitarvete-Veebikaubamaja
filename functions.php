@@ -83,7 +83,47 @@
 		$picDir = "thumbnails";
 		$contact = "Email: Kartulipuder123@hot.ee Tel:584874594" ;
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("SELECT id, pictureName, product_name, productDesc, Price from epproducts WHERE sold = 0 ORDER BY id DESC");
+		$stmt = $mysqli->prepare("SELECT id, pictureName, product_name, productDesc, Price from epproducts WHERE sold = 0  ORDER BY id DESC");
+		echo $mysqli->error;
+		$stmt->bind_result ($id,$pictureName, $productName, $productDesc, $Price);
+		$stmt->execute();
+		
+		while($stmt->fetch()){
+			$notice .=  '<tr><td><img src="' . $picDir . '/' . $pictureName  . '" alt="Auto"></td><td><a href="Item.php?id=' .$id . '">'. $productName .'</a> </td><td><h3>'. $Price .'€</h3></td></tr>' ;
+			
+		}
+		
+		$stmt->close();
+		$mysqli->close();
+		return $notice;
+	}
+	
+	function latestSell(){
+		$notice = "";
+		$picDir = "thumbnails";
+		$contact = "Email: Kartulipuder123@hot.ee Tel:584874594" ;
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("SELECT id, pictureName, product_name, productDesc, Price from epproducts WHERE sold = 0 And Type=1 ORDER BY id DESC");
+		echo $mysqli->error;
+		$stmt->bind_result ($id,$pictureName, $productName, $productDesc, $Price);
+		$stmt->execute();
+		
+		while($stmt->fetch()){
+			$notice .=  '<tr><td><img src="' . $picDir . '/' . $pictureName  . '" alt="Auto"></td><td><a href="Item.php?id=' .$id . '">'. $productName .'</a> </td><td><h3>'. $Price .'€</h3></td></tr>' ;
+			
+		}
+		
+		$stmt->close();
+		$mysqli->close();
+		return $notice;
+	}
+	
+	function latestRent(){
+		$notice = "";
+		$picDir = "thumbnails";
+		$contact = "Email: Kartulipuder123@hot.ee Tel:584874594" ;
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("SELECT id, pictureName, product_name, productDesc, Price from epproducts WHERE sold = 0 And type=2  ORDER BY id DESC");
 		echo $mysqli->error;
 		$stmt->bind_result ($id,$pictureName, $productName, $productDesc, $Price);
 		$stmt->execute();
@@ -110,6 +150,27 @@
 		
 		while($stmt->fetch()){
 			$notice .=  '<tr><td><img src="' . $picDir . '/' . $pictureName . '" alt="Auto"></td><td><a href="Item.php?id=' .$id . '">'. $productName .'</a> </td><td><h3>'. $Price .'€</h3></td></tr>' ;
+			
+		}
+		
+		$stmt->close();
+		$mysqli->close();
+		return $notice;
+	}
+	
+	function itemList($Category, $type){
+		$notice = "";
+		$picDir = "thumbnails";
+		$contact = "Email: Kartulipuder123@hot.ee Tel:584874594" ;
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("SELECT id, pictureName, product_name, productDesc, Price from epproducts WHERE sold = 0 AND Category = ? AND type = ? ORDER BY id DESC");
+		echo $mysqli->error;
+		$stmt->bind_param("ii", $Category, $type);
+		$stmt->bind_result ($id,$pictureName, $productName, $productDesc, $Price);
+		$stmt->execute();
+		
+		while($stmt->fetch()){
+			$notice .=  '<tr><td><img src="' . $picDir . '/' . $pictureName  . '" alt="Auto"></td><td><a href="Item.php?id=' .$id . '">'. $productName .'</a> </td><td><h3>'. $Price .'€</h3></td></tr>' ;
 			
 		}
 		
@@ -157,82 +218,4 @@ where epproducts.id = ?");
 	}
 	
 	
-	function latestElectronics(){
-		$notice = "";
-		$picDir = "thumbnails";
-		$contact = "Email: Kartulipuder123@hot.ee Tel:584874594" ;
-		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("SELECT id, pictureName, product_name, productDesc, Price from epproducts WHERE sold = 0 AND Category = 1 ORDER BY id DESC");
-		echo $mysqli->error;
-		$stmt->bind_result ($id,$pictureName, $productName, $productDesc, $Price);
-		$stmt->execute();
-		
-		while($stmt->fetch()){
-			$notice .=  '<tr><td><img src="' . $picDir . '/' . $pictureName  . '" alt="Auto"></td><td><a href="Item.php?id=' .$id . '">'. $productName .'</a> </td><td><h3>'. $Price .'€</h3></td></tr>' ;
-			
-		}
-		
-		$stmt->close();
-		$mysqli->close();
-		return $notice;
-	}
 	
-		function latestClothes(){
-		$notice = "";
-		$picDir = "thumbnails";
-		$contact = "Email: Kartulipuder123@hot.ee Tel:584874594" ;
-		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("SELECT id, pictureName, product_name, productDesc, Price from epproducts WHERE sold = 0 AND Category = 2 ORDER BY id DESC");
-		echo $mysqli->error;
-		$stmt->bind_result ($id,$pictureName, $productName, $productDesc, $Price);
-		$stmt->execute();
-		
-		while($stmt->fetch()){
-			$notice .=  '<tr><td><img src="' . $picDir . '/' . $pictureName  . '" alt="Auto"></td><td><a href="Item.php?id=' .$id . '">'. $productName .'</a> </td><td><h3>'. $Price .'€</h3></td></tr>' ;
-			
-		}
-		
-		$stmt->close();
-		$mysqli->close();
-		return $notice;
-	}
-	
-	function latestFurniture(){
-		$notice = "";
-		$picDir = "thumbnails";
-		$contact = "Email: Kartulipuder123@hot.ee Tel:584874594" ;
-		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("SELECT id, pictureName, product_name, productDesc, Price from epproducts WHERE sold = 0 AND Category = 3 ORDER BY id DESC");
-		echo $mysqli->error;
-		$stmt->bind_result ($id,$pictureName, $productName, $productDesc, $Price);
-		$stmt->execute();
-		
-		while($stmt->fetch()){
-			$notice .=  '<tr><td><img src="' . $picDir . '/' . $pictureName  . '" alt="Auto"></td><td><a href="Item.php?id=' .$id . '">'. $productName .'</a> </td><td><h3>'. $Price .'€</h3></td></tr>' ;
-			
-		}
-		
-		$stmt->close();
-		$mysqli->close();
-		return $notice;
-	}
-	
-	function latestOthers(){
-		$notice = "";
-		$picDir = "thumbnails";
-		$contact = "Email: Kartulipuder123@hot.ee Tel:584874594" ;
-		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("SELECT id, pictureName, product_name, productDesc, Price from epproducts WHERE sold = 0 AND Category = 4 ORDER BY id DESC");
-		echo $mysqli->error;
-		$stmt->bind_result ($id,$pictureName, $productName, $productDesc, $Price);
-		$stmt->execute();
-		
-		while($stmt->fetch()){
-			$notice .=  '<tr><td><img src="' . $picDir . '/' . $pictureName  . '" alt="Auto"></td><td><a href="Item.php?id=' .$id . '">'. $productName .'</a> </td><td><h3>'. $Price .'€</h3></td></tr>' ;
-			
-		}
-		
-		$stmt->close();
-		$mysqli->close();
-		return $notice;
-	}

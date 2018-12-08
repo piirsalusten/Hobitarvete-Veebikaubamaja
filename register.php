@@ -8,16 +8,19 @@
 	$signupPic = "";
 	$signupAddress = "";
 	$signupPhoneNumber = "";
+	$signupGender = "";
 	$signupBirthDay = null;
 	$signupBirthMonth = null;
 	$signupBirthYear = null;
 	$signupBirthDate = null;
+	$gender = "";
 	$notice= "";
 	
 	# Vigade muutujad
 	$signupFirstNameError = "";
 	$signupFamilyNameError = "";
 	$signupBirthDayError = "";
+	$signupGenderError = "";
 	$signupEmailError = "";
 	$signupPasswordError = "";
 	$signupPicError = "";
@@ -253,6 +256,37 @@
             </div>
 		
         </div>
+
+			<div id="sidebar">
+				<div id="feeds">
+					
+					<?php if( isset($_SESSION['userId']) && !empty($_SESSION['userId']) )
+						{
+					?>
+					<p>Tere, <?php echo $_SESSION["firstname"] ." " .$_SESSION["lastname"]; ?></p>
+					<p><a href="addsale.php">Lisa kuulutus</a></p>
+					<a href="mylistings.php">Minu kuulutused</a><br>
+					<a href="?logout=1">Logi välja!</a>
+					<?php }else{ ?>
+					<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+					<label>Kasutajanimi (E-post): </label>
+					<br>
+					<input name="loginEmail" type="email" value="<?php echo $loginEmail; ?>">
+					<br><br>
+					<label>Parool: </label>
+					<br>
+					<input name="loginPassword" placeholder="Salasõna" type="password">
+					<br><br>
+					<input name="signinButton" type="submit" value="Logi sisse"> <span> <?php echo $notice ?><span>
+					</form>
+					<a href="register.php">Registreeri!</a>
+					<?php } ?>
+				</div>
+
+			
+				</div>
+
+		
 			</div>
 			<div style="clear:both"></div>
 

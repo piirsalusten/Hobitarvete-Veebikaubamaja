@@ -26,6 +26,9 @@
 	$fileToUploadError = "";
 	$productUserId = "";
 	$categoryError = "";
+	$productType = "";
+	$productTypeError = "";
+	$type = "";
 	
 	
 	$target_dir = "kuulutuspics/";
@@ -109,12 +112,18 @@
 	}else{
 		$notice = "Palun valige kõigepealt pildifail!";
 	}
-	
+
+    if (isset($_POST["type"]) && !empty($_POST["type"])){ //kui on määratud ja pole tühi
+        $productType = intval($_POST["type"]);
+    } else {
+        $productTypeError = " (Palun vali sobiv!) Määramata!";
+    }
+
 	# Uue kuulutuse lisamine andmebaasi
-	if (empty($productNameError) and empty($productDescError) and empty ($productPriceError) 
-	and empty ($productCategoryError) and empty ($fileToUploadError)){
+	if (empty($productNameError) and empty($productDescError) and empty ($productTypeError) and empty
+    ($productPriceError) and empty ($productCategoryError) and empty ($fileToUploadError)){
 		echo "Hakkan andmeid salvestama!"; 
-		addSale($productName, $productCategory, $productPrice, $productDesc, $target_file);
+		addSale($productName, $productCategory, $productPrice, $productType,  $productDesc, $target_file);
 	}
 	
 	}
@@ -146,10 +155,11 @@
 					<li><a href=""><pealkiri>KUULUTUSED</pealkiri></a>
 				<ul>
 				
-					<li><a href="electronics.php"><pealkiri>ELEKTROONIKA</pealkiri></a></li>
-					<li><a href="clothes.php"><pealkiri>RIIDEESEMED</pealkiri></a></li>
-					<li><a href="furniture.php"><pealkiri>MÖÖBEL</pealkiri></a></li>
-					<li><a href="others.php"><pealkiri>MUU</pealkiri></a></li>
+					<li><a href="item_list.php?Category=1&type=1"><pealkiri>Veesport</pealkiri></a></li>
+					<li><a href="item_list.php?Category=2&type=1"><pealkiri>Talisport</pealkiri></a></li>
+					<li><a href="item_list.php?Category=3&type=1"><pealkiri>Kalastus</pealkiri></a></li>
+					<li><a href="item_list.php?Category=4&type=1"><pealkiri>Ratsasport</pealkiri></a></li>
+                    <li><a href="item_list.php?Category=5&type=1"><pealkiri>Jahindus</pealkiri></a></li>
 				
 				</ul>
 					<li><a href="questions.php"><pealkiri>REEGLID</pealkiri></a></li>
@@ -170,13 +180,21 @@
 				<label>Vali toote kategooria:</label>
 				
 				<select name="Categories">
-					<option value="1">Elektroonika</option>
-					<option value="2">Riideesemed</option>
-					<option value="3">Mööbel</option>
-					<option value="4">Muu</option>
+					<option value="1">Veesport</option>
+					<option value="2">Talisport</option>
+					<option value="3">Kalastus</option>
+					<option value="4">Ratsasport</option>
+                    <option value="5">Jahindus</option>
+
 				</select>
 				<span> <?php echo $productCategoryError ?><span>
 				<br><br>
+                <label>Kuulutuse tüüp: </label>
+                <br>
+                <input type="radio" name="type" value="1" <?php if ($productType == '1') {echo 'checked';} ?>><label>Müük</label> <!-- Kõik läbi POST'i on string!!! -->
+		        <input type="radio" name="type" value="2" <?php if ($productType == '2') {echo 'checked';} ?>><label>Rent</label>
+                <span> <?php echo $productTypeError ?><span>
+                <br><br>
 				<label>toote hind: </label>
 				<input name="productPrice" type="text" value="<?php echo $productPrice; ?>">
 				<span> <?php echo $productPriceError ?><span>

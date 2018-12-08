@@ -57,9 +57,9 @@
 	
 	function addSale($productName, $productCategory, $productPrice, $productDesc, $target_file){
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("INSERT INTO epproducts(epusers_id, product_name, Category, Price, productDesc, pictureName) VALUES (?, ?, ?, ?, ?, ?)");
+		$stmt = $mysqli->prepare("INSERT INTO epproducts(epusers_id, product_name, Category, type, Price, productDesc, pictureName, ) VALUES (?, ?, ?,  ?, ?, ?, ?)");
 		echo $mysqli->error;
-		$stmt->bind_param("isiiss", $_SESSION["userId"], $productName, $productCategory, $productPrice, $productDesc, $target_file);
+		$stmt->bind_param("isiiiss", $_SESSION["userId"], $productName, $productCategory, $productPrice, $productType,  $productDesc, $target_file);
 		if($stmt->execute()){
 			header("Location: index.php");
 			exit();

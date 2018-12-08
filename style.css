@@ -86,7 +86,7 @@ ul#menu li {
     font-size: 24px;
     color: #67666e;
     padding-top: 25px;
-	font-family: 'Arial Narrow', sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
  
 #content h3 {
@@ -94,7 +94,7 @@ ul#menu li {
     color: #67666e;
     padding-top: 20px;
     padding-bottom: 20px;
-	font-family: 'Arial Narrow', sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
  
 #content h4 {
@@ -128,7 +128,6 @@ ul#menu li {
 #content {
     width: 47%; 
     float: left;
-    margin-left: 15%;
 }
 
 #sidebar {
@@ -235,11 +234,10 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #8a8a8a;
 	
 .container {
     border-radius: 5px;
-    background-color: #fff;
+    background-color: #67666e;
     padding: 20px;
-}
 	

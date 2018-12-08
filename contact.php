@@ -68,10 +68,10 @@
 					<li><a href=""><pealkiri>KUULUTUSED</pealkiri></a>
 				<ul>
 				
-					<li><a href="electronics.php"><pealkiri>ELEKTROONIKA</pealkiri></a></li>
-					<li><a href="clothes.php"><pealkiri>RIIDEESEMED</pealkiri></a></li>
-					<li><a href="furniture.php"><pealkiri>MÖÖBEL</pealkiri></a></li>
-					<li><a href="others.php"><pealkiri>MUU</pealkiri></a></li>
+					<li><a href="electronics.php"><pealkiri>Elektroonika</pealkiri></a></li>
+					<li><a href="clothes.php"><pealkiri>Riideesemed</pealkiri></a></li>
+					<li><a href="furniture.php"><pealkiri>Mööbel</pealkiri></a></li>
+					<li><a href="others.php"><pealkiri>Muu</pealkiri></a></li>
 				
 				</ul>
 					<li><a href="questions.php"><pealkiri>REEGLID</pealkiri></a></li>

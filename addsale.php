@@ -1,4 +1,4 @@
-/*<?php
+<?php
 	require("../../config.php");
 	require("functions.php");
 	require("classes/Photoupload.class.php");
@@ -26,9 +26,6 @@
 	$fileToUploadError = "";
 	$productUserId = "";
 	$categoryError = "";
-	$productType = "";
-	$productTypeError = "";
-	$type = "";
 	
 	
 	$target_dir = "kuulutuspics/";
@@ -112,22 +109,16 @@
 	}else{
 		$notice = "Palun valige kõigepealt pildifail!";
 	}
-
-    if (isset($_POST["type"]) && !empty($_POST["type"])){ //kui on määratud ja pole tühi
-        $productType = intval($_POST["type"]);
-    } else {
-        $productTypeError = " (Palun vali sobiv!) Määramata!";
-    }
-
+	
 	# Uue kuulutuse lisamine andmebaasi
-	if (empty($productNameError) and empty($productDescError) and empty ($productTypeError) and empty
-    ($productPriceError) and empty ($productCategoryError) and empty ($fileToUploadError)){
+	if (empty($productNameError) and empty($productDescError) and empty ($productPriceError) 
+	and empty ($productCategoryError) and empty ($fileToUploadError)){
 		echo "Hakkan andmeid salvestama!"; 
-		addSale($productName, $productCategory, $productPrice, $productType,  $productDesc, $target_file);
+		addSale($productName, $productCategory, $productPrice, $productDesc, $target_file);
 	}
 	
 	}
-?>*/
+?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
@@ -155,11 +146,10 @@
 					<li><a href=""><pealkiri>KUULUTUSED</pealkiri></a>
 				<ul>
 				
-					<li><a href="item_list.php?Category=1&type=1"><pealkiri>Veesport</pealkiri></a></li>
-					<li><a href="item_list.php?Category=2&type=1"><pealkiri>Talisport</pealkiri></a></li>
-					<li><a href="item_list.php?Category=3&type=1"><pealkiri>Kalastus</pealkiri></a></li>
-					<li><a href="item_list.php?Category=4&type=1"><pealkiri>Ratsasport</pealkiri></a></li>
-                    <li><a href="item_list.php?Category=5&type=1"><pealkiri>Jahindus</pealkiri></a></li>
+					<li><a href="electronics.php"><pealkiri>ELEKTROONIKA</pealkiri></a></li>
+					<li><a href="clothes.php"><pealkiri>RIIDEESEMED</pealkiri></a></li>
+					<li><a href="furniture.php"><pealkiri>MÖÖBEL</pealkiri></a></li>
+					<li><a href="others.php"><pealkiri>MUU</pealkiri></a></li>
 				
 				</ul>
 					<li><a href="questions.php"><pealkiri>REEGLID</pealkiri></a></li>
@@ -171,42 +161,34 @@
 
 			<div id="content">
 				<h2>Lisa kuulutus</h2>
-				<br>
+				<br><br>
 				<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
 				<label>Toote nimi: </label>
 				<input name="productName" type="text" value="<?php echo $productName; ?>">
-				<span> <?php echo $productNameError ?><span>
-				<br>
+				<span> <?php echo $productNameError ?></span>
+				<br><br>
 				<label>Vali toote kategooria:</label>
 				
 				<select name="Categories">
-					<option value="1">Veesport</option>
-					<option value="2">Talisport</option>
-					<option value="3">Kalastus</option>
-					<option value="4">Ratsasport</option>
-                    <option value="5">Jahindus</option>
-
+					<option value="1">Elektroonika</option>
+					<option value="2">Riideesemed</option>
+					<option value="3">Mööbel</option>
+					<option value="4">Muu</option>
 				</select>
-				<span> <?php echo $productCategoryError ?><span>
+				<span> <?php echo $productCategoryError ?></span>
 				<br><br>
-                <label>Kuulutuse tüüp: </label>
-                <br>
-                <input type="radio" name="type" value="1" <?php if ($productType == '1') {echo 'checked';} ?>><label>Müük</label> <!-- Kõik läbi POST'i on string!!! -->
-		        <input type="radio" name="type" value="2" <?php if ($productType == '2') {echo 'checked';} ?>><label>Rent</label>
-                <span> <?php echo $productTypeError ?><span>
-                <br><br>
 				<label>toote hind: </label>
 				<input name="productPrice" type="text" value="<?php echo $productPrice; ?>">
-				<span> <?php echo $productPriceError ?><span>
+				<span> <?php echo $productPriceError ?></span>
 				<br><br>
 				<label>Kuulutuse kirjeldus: </label>
-				<br>
+				<br><br>
 				<textarea name="productDesc" rows="5" cols="40"><?php echo $productDesc; ?></textarea>
-				<span> <?php echo $productDescError ?><span>
+				<span> <?php echo $productDescError ?></span>
 				<br><br>
 				<label>Valige pilt tootest:</label>
 				<input type="file" name="fileToUpload" id="fileToUpload">
-				<span> <?php echo $fileToUploadError ?><span>
+				<span> <?php echo $fileToUploadError ?></span>
 				<br><br>
 				<input type="submit" value="Lae üles" name="submit">
 				</div>
@@ -232,7 +214,7 @@
 					<br>
 					<input name="loginPassword" placeholder="Salasõna" type="password">
 					<br><br>
-					<input name="signinButton" type="submit" value="Logi sisse"> <span> <?php echo $notice ?><span>
+					<input name="signinButton" type="submit" value="Logi sisse"> <span> <?php echo $notice ?></span>
 					</form>
 					<a href="register.php">Registreeri!</a>
 					<?php } ?>

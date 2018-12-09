@@ -96,7 +96,18 @@
 
 			<div id="content">
 				<h2> Tooted: </h2>
-				<span><table style="width:100%"> <tr><?php echo itemList($_GET['Category'], $_GET['type']); ?></tr></table> <br></span>
+				<span><table style="width:100%"> <tr><?php
+				if ($_GET['Category'] !== '6'){
+				echo itemList($_GET['Category'], $_GET['type']);
+				} else {
+					if ($_GET['type'] === '1'){
+						echo latestSell();
+					} else {
+						echo latestRent();
+					}
+				}
+				
+				?></tr></table> <br></span>
 		
 				</div>
 		

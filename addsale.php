@@ -116,7 +116,6 @@
     if (isset($_POST["type"]) && !empty($_POST["type"])){ //kui on määratud ja pole tühi
         $productType = intval($_POST["type"]);
         echo $productType;
-        echo $type;
     } else {
         $productTypeError = " (Palun vali sobiv!) Määramata!";
     }

@@ -190,7 +190,12 @@ where epproducts.id = ?");
 		$stmt->bind_param("i", $itemId);
 		$stmt->bind_result($id, $epusers_id, $pictureName, $productName, $productDesc, $Price, $firstname, $email,$tel);
 		$stmt->execute();
-		if($stmt->fetch()){$notice .=  '<h2>'. $productName .'</h2><img src="' . $picDir . '/' . $pictureName . '" alt="Auto"><br>'. $productDesc . '<br><br>'. $firstname .'<br>'.$email.'<br>'. $tel .'<h3>'. $Price .'€</h3>';
+		if($stmt->fetch()){
+			if ($userId <> 111){
+			$notice .=  '<h2>'. $productName .'</h2><img src="' . $picDir . '/' . $pictureName . '" alt="Auto"><br>'. $productDesc . '<br><br>'. $firstname .'<br>'.$email.'<br>'. $tel .'<h3>'. $Price .'€</h3>';
+			} else {
+				$notice .=  '<h2>'. $productName .'</h2><img src="' . $picDir . '/' . $pictureName . '" alt="Auto"><br>'. $productDesc . '<br><br><h3>Kontaktandmete nägemiseks logi sisse!</h3><br><h3>'. $Price .'€</h3>';
+			}
 		if($userId == $epusers_id){
 			$notice .= '<p><a href="?id=' .$id.'; &delete=1">Kustuta see kuulutus</a></p>';
 		}

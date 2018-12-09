@@ -60,7 +60,6 @@
 
 			<div id="header">
 				<div id="logo">
-					<h2>Hobitarvete veebikaubamaja</h2>
 				</div>
 
 				<div style="clear:both"></div>

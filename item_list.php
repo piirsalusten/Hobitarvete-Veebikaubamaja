@@ -152,9 +152,13 @@
 
 	<div id="footer">
 		<div class="container">
-			<p>Copyright &copy; 2017 tlushop.ee <br>
+			<p>Copyright &copy; 2018 Hobitarvete veebikaubmaja <br>
 				All Rights Reserved
 			</p>
+			<div class="footer-links">
+				<a href="contact.php">Kontakt</a>
+				<a href="privacy.php">Privaatsuspoliitika</a>
+			</div>
 			
 		</div>
 	</div>

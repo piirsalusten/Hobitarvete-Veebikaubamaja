@@ -55,7 +55,7 @@
 		}	
 	}
 	
-	function addSale($productName, $productCategory, $productPrice, $productDesc, $target_file){
+	function addSale($productName, $productCategory, $productType,  $productPrice, $productDesc, $target_file){
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		$stmt = $mysqli->prepare("INSERT INTO epproducts(epusers_id, product_name, Category, saletype, Price, productDesc, pictureName) VALUES (?, ?, ?, ?, ?, ?, ?)");
 		echo $mysqli->error;
